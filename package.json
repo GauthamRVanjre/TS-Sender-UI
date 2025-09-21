@@ -4,7 +4,6 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "anvil": "anvil --load-state tsender-deployed.json",
     "build": "next build --turbopack",
     "start": "next start"
   },
@@ -17,14 +16,14 @@
     "react-dom": "19.1.0",
     "react-icons": "^5.5.0",
     "viem": "^2.36.0",
-    "wagmi": "^2.16.9",
-    "@foundry-rs/anvil": "^0.2.0"
+    "wagmi": "^2.16.9"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "hardhat": "^3.0.4",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
