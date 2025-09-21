@@ -1,10 +1,11 @@
 "use client";
 
 import { InputForm } from "./ui/InputField";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { chainsToTSender, erc20Abi, tsenderAbi } from "@/constants";
 import { useChainId, useConfig, useAccount } from "wagmi";
 import { readContract } from "@wagmi/core";
+import { calculateAmount } from "@/utils/CalculateAmount";
 
 export default function AirdropForm() {
   const [tokenAddress, setTokenAddress] = useState("");
@@ -13,6 +14,10 @@ export default function AirdropForm() {
   const config = useConfig();
   const account = useAccount();
   const chainId = useChainId();
+
+  const totalAmount = useMemo(() => {
+    calculateAmount(amounts);
+  }, [amounts]);
 
   // This function will get the tsender address(contract address) and make a function call to allowance function
   const getAmountApproved = async (
